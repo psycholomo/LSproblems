@@ -1,0 +1,227 @@
+
+    naming conventions: legal vs. idiomatic, illegal vs. non-idiomatic
+        conventional is using snake case for variables, all lower case
+        snake case for functions as well
+        screaming snake case for constants
+        camelCase works but does not follow conventional (i.e legal but not idiomatic)
+        illegal are things like starting with a digit, assigning variables to keywords
+        assigning to special characters (for example using hyphens or ending the assignment with 
+        $ or using spaces)
+        Pascal Case for classes which means starting with an uppercase
+    type coercions: explicit (e.g., using int(), str()) and implicit
+        type coercion is when we are deliberate about converting one type to a different type
+        when we want a int to a float or a string to an int.
+        implicit is when the python interpreter converts it for us.
+        multiplying a int with a float is a great example of implicit
+    
+    numbers
+    a number or integer is a whole number, a float is an umber with decimal points
+    
+    strings
+    are anything represented as words
+    
+    f-strings
+    f-strings use string interpolation so you can pass in variables as strings
+    
+    string methods
+        capitalize, 
+            capitilize will take the string, uppercase the first letter and make 
+            all other letters lowercase usage is "string".capitalize()
+        swapcase,
+            switches all lowercase and uppercase 
+            "string".swapcase()
+            
+        upper,
+            converts all characters in a string to uppercase
+         lower
+            converts all characters in a string to lowercase
+        isalpha
+            returns a boolean if all characters are alphabetical. False if otherwise
+        isdigit
+            checks a string to see if it a number
+        isalnum
+            checks to see if the string contains only alpha or numeric, not spaces 
+        islower
+            checks to see if all characters are lowercase
+         isupper
+            checks to see if all charactera are uppercase 
+        isspace
+            checks to see if the string is all spaces, returns false if its an empty string. other things like \n \r are considered white spacce
+        strip,
+            used to remove padding between the beginning and ending of a word. Can also be used to remove characters
+        rstrip, 
+            removes all white space at the end of the word
+        lstrip, 
+            removes all white space at the beginning of a word.
+        replace
+            replace replaces letters or words with a different word.
+        split
+            usually used to break apart a string using an indicator and turn it into a list
+            an example is 
+            # Without delimiter - splits on any whitespace
+            messy_text = "  apple    banana   cherry  "
+            print(messy_text.split())     # ['apple', 'banana', 'cherry']
+
+            # With space delimiter - splits at every space
+            print(messy_text.split(' '))  # ['', '', 'apple', '', '', '', 'banana', '', '', 'cherry', '', '']
+
+        find,
+            goes from left to right, finds the first substring that matches, otherwise returns -1, it finds the index
+        rfind
+            from from right to left, finds the first substring that matches, otherwise returns -1, it finds the index
+    
+    boolean vs. truthiness
+        Boolean are explicit True or False. truthiness is the evaluation of true or false. you can do "1" == "1+ which is truthy because it evaluates to true
+        values like 0, empty strings, None and arrays evalulate to falsy
+    
+    None
+        Used when you need to explicitilly handle a case where there is no value
+        common cases are when using "is" for example if name is not None:
+            <do something>
+    
+    ranges
+        can provide up to 3 values, if 1 value is provided will go up to that value, but not inclusive
+        two values will provide a starting and stopping value
+        third value is how you want to step through the range.
+        you can also do comparisons with range
+        For example 14 in range(1,15) would return true
+        usually used in functions like 
+        for num in range(1,15):
+            print(num)
+    
+    list and dictionary syntax
+    
+    list methods: 
+        len(list),
+            returns the full length of the list. if you have a list of [1,2,3] it will return a length of 3, indexes only go up to 2
+        list.append(), 
+            mutates the list and adds the appended value to the end of the array
+        list.pop(), 
+            removes the last item from a list. mutates the list
+        list.reverse()
+            mutates the original list and flips the order
+    
+    dictionary methods: dict.keys(), dict.values(), dict.items(), 
+        dict.get()
+            returns the value based on a key. must provide a key and it will return the value
+    
+    slicing (strings, lists, tuples)
+        slicing in strings is inclusive from the first value and exclusive to the last value
+        "hello" [1:4] will print out "ell"
+        you can also reverse strings with string[::-1])
+        slicing a string returns a copy, it does not edit the original value
+        
+        slicing does something similiar with lists, it will return a list of
+        elements, you can also reverse the list with ::-1
+        tuples do the same thing as lists
+        the colons represent the start, stop and steps.
+    operators
+        Arithmetic: +, -, *, /, //, %, **
+        String operators: +
+            concatinates the two strings together
+        List operators: +
+            concatinates the two lists together
+        Comparison: ==, !=, <, >, <=, >=
+        Logical: and, or, not
+            returns truthy values based on comparisons
+        Identity: is, is not
+            idenity is used to compare if the objects are the same in memory
+            using is not is a very common pattern in python when we are trying to see if the value evaluates to "none"
+            while value is not none
+            when comparing lists and dictionaries they create there own
+            where == compares the values in a list and dictionary
+            if you use is 
+            when using is on a string or number, it will evaluate to true as they point to the same object in memory
+
+        operator precedence
+            paranthesis is always first, then exponentionals, then multiplcation, modulo / division from left to right
+    
+    
+    mutability and immutability
+    almost everything in python is immutabile except for lists and dicts.
+
+    
+    pass by object reference
+    Everything in python is linked to an object. This means that everything is pass by reference.
+    We do not assign a variable to a value, it is assigned to an adress in memory that holds that value.
+    a = 1
+    b = a
+    represents that well as they are both pointing to the same object. When we change the referecnce to
+    a, b still points to a in memory, but a gets reassigned to a new value.
+    
+    variables
+        naming conventions
+        initialization,
+            python requires explicit initalization, you can night intialize variables without a value
+            if you need no value then you should assign it the "none" value 
+        assignment,
+            assignment is when we give a variable a value, for example a = 1, we are assigning 1 to the variable named a. This will assign a spot in memory
+            until it is no longer used and python picks it up for garbage collection
+        reassignment
+            Is when we take an initial value of a variable and give it a new value. This dereferences the value
+            in memory and gives it a new value with a new pointer in memory to its updated value. The original will still
+            be there as long as something references it 
+        scope
+            scope is what determines what variables you can access within your program.
+            It is determined by where you initalize these variables. We have global scope and  local scope (or function scope.)
+            in local scope variables can be access from outer scopes but you cannot modify them.
+        global keyword
+            allows values to access values in the global scope. If you need to update a value or access it,
+            using the global keyword will allow you to access it when its in the global scope
+            variables as pointers
+
+        variable shadowing
+            variable shadowing is when the same name of a variable is used in different scopes or functions
+            This causes confusion and unpredictable results and should be avoided.
+            defining a variable in a function and in the global scope can lead to very unpredictable results
+
+    
+    conditionals and loops
+        for
+        while
+    
+    print()
+    gives a string representation to your terminal, it has no return value
+    useful for debugging
+
+
+     input()
+        takes a value that a user puts into the console, and provides it as a string input value to the python interpreter
+    
+    exceptions (when they will occur and how to handle them)
+        A lot of exceptions happen when we for example divide by 0, or cant find specific values
+        we can have index errors, divisible by 0 errors, KeyErrors, TypeErrors, effects
+        We typically handle these errors with trying blocks or if / else cases to check for edge cases
+        we can use try to see if our code will work and if not do except and the type of errors
+        printing out why it did not work or run different code
+    
+    Functions:
+        definitions and calls
+            a definition of a function is used with the def word followed by the name of the function and any parameters it might need
+            calling or invoking a function is when we use the paranthesis on the function () to invoke it.
+            It will then run the code inside the function at time of invocation.
+            The function can have return values or do other things
+        
+        return values
+            a return value is the value returned after invoking a function. it is a statement
+
+            
+        parameters vs. arguments
+            A parameter is a name that we determine when we define a function to pass into our function
+            parameters are local to the function. They are typically used as placeholdrees in the function definition.
+            An argument is what is passed in to a function at the time of invocation. These are the actual
+            values passed in to the function at time of invocation.
+        nested functions
+            the key thing about nested functions is that inner functions can access outer function values
+            when running nested functions the inner function will be invoked and resolved before running the outer function
+
+        output vs. return values, side effects
+    
+    expressions and statements
+        the main difference between an expression and a statement is that an expression will 
+        evaluate to something. A statement does not. Things like if statements or loops are considered statements
+        as they are conditions to make your code run. Expressions are the values in those statements
+        expressions always evaluate to a value, can be assigned to variables, can be passed as arguments
+        statements are literally telling the program to perform an action. like when declaring a variable
+        statements do not evaluate to usable values
+
