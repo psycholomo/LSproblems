@@ -7,7 +7,7 @@ import random
 def prompt(input):
     print(f"==>{input}")
 
-input_dict = {
+INPUT_DICT = {
     "r" : ["sc", "l"],
     "sp" : ["sc", "r"],
     "sc" : ["p", "l"],
@@ -31,7 +31,7 @@ def prompter(message):
 def check_valid(input):
 
     try:
-        if input not in input_dict.keys():
+        if input not in INPUT_DICT.keys():
             raise ValueError("Must select from valid input")
     except ValueError:
         return False
@@ -41,7 +41,7 @@ def check_valid(input):
 def find_winner(player_choice, computer_choice):
     if player_choice == computer_choice:
         return "Its a tie"
-    if player_choice in input_dict[computer_choice]:
+    if player_choice in INPUT_DICT[computer_choice]:
         return "computer won"
     else:
         return "player won"
@@ -51,7 +51,7 @@ def find_winner(player_choice, computer_choice):
 print("Welcome to rock paper scissors, choose 'r' for rock, 'sp' for spock" \
 "'sc' for scissors, 'l' for lizard and 'p' for paper")
 myValue = prompter("please select a value")
-computer_value = list(input_dict.keys())
+computer_value = list(INPUT_DICT.keys())
 
 computer_choice = random.choice(computer_value)
 prompt(f"The computer chose {computer_choice}")
