@@ -22,3 +22,13 @@ def factors(number):
         divisor -= 1
     return result
 
+
+
+def last_element(my_list):
+
+    return my_list[-1]
+
+my_list = [1, 5, 3, 7]
+
+print(last_element(my_list) == 7)  # True
+print(my_list == [1, 5, 3, 7])     # False
