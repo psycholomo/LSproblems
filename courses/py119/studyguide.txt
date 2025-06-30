@@ -1,0 +1,53 @@
+
+    str methods: 
+        index, find, split, strip, join, replace, upper, lower, capitalize
+    
+    list methods :
+         append, extend, insert, remove, pop, clear, index, count, sort, reverse, copy.
+    
+    dict methods : 
+        keys, values, items, get, setdefault, update, pop, popitem, clear.
+    
+    set methods: 
+        add, update, remove, clear, union, intersection, difference, 
+        issubset, issuperset, isdisjoint
+    
+    frozenset methods: 
+        union, intersection, difference, issubset, issuperset, isdisjoint
+    
+    tuple methods:
+        count, index, unpacking
+    
+    range and enumerate - 
+        Understanding of how to create and use range objects and enumerate 
+        for indexing during iteration.
+    
+    The built-in functions 
+        sum and all.
+    
+    Conditional statements (if, elif, else)
+    
+    Iteration using for loops, break, continue
+    
+    Sorting lists using the sorted function and list.sort method
+    
+    Custom sorting using the key parameter and reverse sorting using the reverse parameter
+    
+    Comprehensions
+    
+    Nested data structures and nested iteration
+    
+    Shallow and deep copy
+    
+    Discuss a function's use and purpose (a "user-level" description) instead of its implementation
+
+Core Skills You Should Master
+
+To be successful, especially during the interview, you should feel confident in the following skills:
+
+    General programming fluency with basic and intermediate Python.
+    Ability to problem solve and decompose the problem description into technical concepts.
+    Ability to speak clearly and with precision while coding.
+    Working with simple data structures like list, tuples, dictionaries, sets and frozensets.
+    How to iterate over a list, string, or a dictionary's properties, and know exactly how to control the iteration flow. Specifically, understand when to use break and continue.
+    Manipulating list, sets and dictionaries. For example, an exercise might be "reverse a list without using the built-in list.reverse method" or "select the element out of the list if its index is a Fibonacci number," or "write a function that removes every other element from a list."

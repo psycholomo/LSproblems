@@ -1,0 +1,73 @@
+Is every collection a sequence? Is every sequence a collection? Explain your reasoning.
+    Not every collection is a sequence, Sequences are able to maintain order while other collections like dictionaries and sets do not need to maintain order.
+    sequences are things like strings, lists, tuples, ranges
+
+What are the defining characteristics that make a collection a sequence in Python? Which characteristics can vary between different types of sequences?
+    it is an ordered collection of items where each item can be accessed by its index or position. This means the items have a specific order, starting at index 0, 
+    and elements can be referenced by that index.
+
+
+in a list if the start is greater then the stop, it will return an empty sequence
+It is the same if the steps are reversed
+
+a sequences are iterables, meaning you can iterate over them with a loop
+
+
+you cannot concatenate a range, it will return a type errors
+count to get a count of how many values are in a sequence
+.index will return the first occurance of a value in a sequence
+
+What's an operation on a sequence that depends on the types of its elements to work correctly? What's another operation that works regardless of the elements contained in the sequence?
+    An operation on a sequence that depends on the types of its elements is using min or max. 
+    These functions compare the elements and require the elements to be comparable with each other (like numbers or strings). If the sequence contains mixed types that can't be compared, these operations will raise a TypeError.
+
+    An operation that works regardless of the elements contained in the sequence is 
+    determining its length using len(). This works with any sequence type without depending 
+    on the types of the elements inside.
+
+you can run tuple(string) on a string to convert it into a tuple of letters, same with a range
+
+
+A peer thinks str([1, 2, 3]) should convert each integer to a string and 
+return a list of strings. 
+How would you explain that this behavior 
+would be unexpected given the purpose of constructor functions like str?
+
+    The str constructor converts the entire object into its string representation as a
+    whole—it doesn’t apply to each element individually. So when you do str([1, 2, 3]), 
+    it returns the string "[1, 2, 3]" rather than a list of string elements. 
+    This behavior is expected because constructor functions like str are designed 
+    to convert the object itself, not transform each element inside it. 
+
+
+dictionaries use keys, keys can be of any hashable type. you cant use a list as a key for example
+trying to access a key that doesnt exist will result in a key error
+using dict.get() will return None if key not found
+
+to check if a key has a specific value you can use the in keyword
+
+most immutable objects are hashable, hashable means they have a unique identifier
+tuples are hashable as long as they dont have any values that are not hashable
+
+
+
+>>> dict1 = {
+...     'apple': 'Produce',
+...     'carrot': 'Produce',
+...     'pear': 'Produce',
+...     'broccoli': 'Produce',
+... }
+...
+>>> dict1['apple'] = 'Fruit'
+>>> dict1['carrot'] = 'Vegetable'
+>>> dict1
+# Pretty printed for clarity
+{
+    'apple': 'Fruit',
+    'carrot': 'Vegetable',
+    'pear': 'Produce',
+    'broccoli': 'Produce',
+}
+
+In the Python REPL or a script, assign the values 'Fruit' 
+or 'Vegetable' to the pear and broccoli keys.
