@@ -1,0 +1,30 @@
+'''
+the best way I can think of doing this is to take a slice of the substring
+if the element is within that substring, increase counter by 1,
+move to the end of that substring
+'''
+def count_substrings(original_string, substring):
+    counter = 0
+    total = 0
+
+    while counter <  len(original_string):
+        if original_string[counter:counter + len(substring)] == substring:
+            counter += len(substring)
+            total += 1
+        else:
+            counter += 1
+    
+    print(total)
+    return total
+
+
+
+print(count_substrings('babab', 'bab') == 1)
+print(count_substrings('babab', 'ba') == 2)
+print(count_substrings('babab', 'b') == 3)
+print(count_substrings('babab', 'x') == 0)
+print(count_substrings('babab', 'x') == 0)
+print(count_substrings('', 'x') == 0)
+print(count_substrings('bbbaabbbbaab', 'baab') == 2)
+print(count_substrings('bbbaabbbbaab', 'bbaab') == 2)
+print(count_substrings('bbbaabbbbaabb', 'bbbaabb') == 1)

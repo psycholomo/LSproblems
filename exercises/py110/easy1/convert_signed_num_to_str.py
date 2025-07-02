@@ -11,13 +11,20 @@ because this will be at the end we need to reverse the string at the end
 if number because less then or equal to 0,
 return the new built string in reverse
 
-
+create another function to see if the number is negative or positive or 0
+if 0, return 0
+if positive place a + in front of the string
+if negative, please a - in front of the string
 '''
-def integer_to_string(num):
-    if num < 10:
+def signed_integer_to_string(num):
+    if num == 0:
         return str(num)
     convert_str= ""
     convert_num = num
+    sign = "+"
+    if num < 0:
+        sign = "-"
+        convert_num = abs(convert_num)
     
 
     while convert_num > 0:
@@ -25,12 +32,10 @@ def integer_to_string(num):
         convert_str += str(new_num)
         convert_num = convert_num // 10
     
-    return convert_str[::-1]
+    return sign + convert_str[::-1]
 
-print(integer_to_string(4321) == "4321")              # True
-print(integer_to_string(0) == "0")                    # True
-print(integer_to_string(5000) == "5000")              # True
-print(integer_to_string(1234567890) == "1234567890")  # True
+print(signed_integer_to_string(4321) == "+4321")  # True
+print(signed_integer_to_string(-123) == "-123")   # True
+print(signed_integer_to_string(0) == "0")         # True
 
 
-print(10 // 10 )
