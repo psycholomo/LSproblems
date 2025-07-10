@@ -41,15 +41,10 @@ print(unique_string_characters("xyz","zxy") == "") #// true
 
 messed_pokemon = 'BulbAsaur-ChaRMAndeR-pikaCHU-chariZard-SQuirtlE'
 
-
 # add your code here
 pokedex = messed_pokemon.split("-")
 for i in range(len(pokedex)):
     pokedex[i] = pokedex[i].capitalize()
 del pokedex[3] 
-
-
-
-
 
 print(pokedex) # ['Bulbasaur', 'Charmander', 'Pikachu', 'Squirtle']`
