@@ -1,5 +1,6 @@
 '''
 check smaller numbers, do not include duplicates
+
 '''
 
 def smaller_numbers_than_current(arr):
@@ -13,3 +14,5 @@ print(smaller_numbers_than_current([1]) == [0])
 my_list = [1, 4, 6, 8, 13, 2, 4, 5, 4]
 result   = [0, 2, 4, 5, 6, 1, 2, 3, 2]
 print(smaller_numbers_than_current(my_list) == result)
+
+

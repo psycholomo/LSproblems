@@ -12,15 +12,15 @@ create a key that is the index, and values that are the count
 return the list of the count
 '''
 
-def reverse_index(list):
+def reverse_index(my_list):
 
     my_dict = {}
 
-    for indx, value in enumerate(list):
+    for indx, value in enumerate(my_list):
         my_dict[indx] = 0
     
 
-    for value in list:
+    for value in my_list:
         if value in my_dict:
             my_dict[value] += 1
     
