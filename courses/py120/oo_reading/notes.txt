@@ -1,0 +1,31 @@
+
+    Attributes include both methods and instance variables.
+    Properties are the getters and setters defined by the @property and @name.setter decorators. 
+    Properties don't require an associated instance variable, though they usually do have one.
+    We'll use the terms method and instance variable when the term attribute is too broad.
+
+
+
+If we can already access and modify 
+instance variables directly, why would 
+we go through the trouble of defining a 
+property instead?
+
+    Defining a property allows controlled access to 
+    instance variables. It lets you add logic when 
+    getting or setting values, such as validation, 
+    computed values, or preventing unwanted changes. 
+    Properties help maintain encapsulation and protect 
+    an object's internal state, which direct access to 
+    instance variables does not provide.
+
+
+
+Python gives us powerful built-in objects like lists
+ and dictionaries. What's one reason we might still 
+ choose to use OOP, even though it adds complexity?
+
+    it provides encapsation and allows us to better help
+    organize our code. by bundling and building data and behaviors
+    together. Even though it adds complexity it makes
+    it easier to manage and understand.

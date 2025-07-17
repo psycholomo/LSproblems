@@ -19,6 +19,7 @@
     
     strings
     are anything represented as words
+    understanding behavior with strings like "string".split() or converting to a list. split works great when there are spaces. 
     
     f-strings
     f-strings use string interpolation so you can pass in variables as strings

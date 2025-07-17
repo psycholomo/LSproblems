@@ -1,0 +1,15 @@
+Why must polymorphic methods share a common 
+interface in terms of arguments and return values? 
+Why isn't having the same method name sufficient?
+
+    Polymorphic methods must share a common interface 
+    with compatible arguments and return values because 
+    this ensures the client code can call the method on 
+    different objects interchangeably without errors. 
+    Simply having the same method name isn’t enough—if
+    the methods expect different arguments or return
+    different types of values, the code using those
+    methods wouldn’t work reliably or predictably. 
+    A common interface guarantees that the polymorphic
+    methods can be used in a consistent way across
+    different object types.
