@@ -1,0 +1,76 @@
+Do two objects have to be from the same class to be
+considered equal in value? why or why not?
+
+    No, two objects do not have to be from the same 
+    class to be considered equal in value. 
+    Equality depends on how the __eq__ method is 
+    implemented for the objects involved. For example,
+    Python's built-in types like int and float can be 
+    considered equal even though they are different 
+    classes, because their __eq__ methods handle 
+    cross-type comparisons. If a
+    custom class's __eq__ method is written 
+    to allow meaningful comparisons with other 
+    types and returns the appropriate result or 
+    NotImplemented, then equality can work 
+    across different classes.
+
+
+interning is the process where it uses the same memory
+for simple objects. having multiple instances of a string
+for example will be in the same memory location
+
+example of interning
+    str1 = 'something'
+    str2 = 'something'
+    print(str1 is str2)                     # True
+
+    int1 = 5
+    int2 = 3 + 2
+    print(int1 is int2)                     # True
+
+
+Why doesn't Python intern objects like lists and
+ dictionaries, but chooses to intern integers and 
+ strings?
+
+    Python interns integers and strings because they
+    are immutable and commonly used, allowing efficient
+    memory usage and faster comparisons by reusing the 
+    same object in memory. Lists and dictionaries are 
+    mutable, meaning their contents can change, so 
+    interning them could cause unpredictable behavior 
+    and bugs if multiple variables reference the same
+    object and one is mutated. Therefore, Python does 
+    not intern mutable objects like lists and dictionaries.
+
+How does the __eq__ method demonstrate polymorphism?
+ What type(s) of polymorphism are at play here?
+
+    The __eq__ method demonstrates polymorphism by
+    allowing different classes to define their own 
+    specific way of comparing equality. This means 
+    the same == operator can behave differently
+    depending on the class of the objects involved. 
+    The types of polymorphism at play are ad-hoc 
+    polymorphism (through operator overloading, 
+    where __eq__ is customized per class) and 
+    subtype polymorphism (since subclasses can 
+    inherit or override __eq__ to provide 
+    specialized behavior).
+
+
+Would comparing the values returned by id for two 
+objects using == be equivalent to using is?
+ Why or why not?
+
+
+    Yes, comparing the values returned by id for two 
+    objects using == is effectively equivalent to using 
+    is because the id function returns the unique 
+    identity (memory address) of an object. If two 
+    objects have the same id value, they are the same
+    object, so id(obj1) == id(obj2) will be True exactly
+    when obj1 is obj2 is True. However, using is is 
+    preferred because it’s more readable and clearer 
+    in intent.

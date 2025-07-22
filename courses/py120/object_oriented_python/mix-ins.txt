@@ -1,0 +1,16 @@
+interface inheritance is by using mix-ins. which is to 
+allow us to use code in different classes that are
+unrelated
+
+
+    Mix-ins are usually small and focused, providing a single piece of functionality. Several methods may be involved, but they are all focused on the same basic functionality.
+    Mix-ins should not normally have state of their own. In particular, they don't have a __init__ method.
+    Mix-ins must not be instantiated. In Python, all classes can be instantiated, including mix-ins, but you should not do so. In particular, the lack of state makes instantiation questionable. Furthermore, instantiating mix-ins suggests that the mix-in is unsuitable to act as a mix-in.
+    Mix-ins must not be dependent on the inner workings of other classes.
+    Mix-ins should be reusable in multiple classes.
+    A class should usually only subclass from one superclass. However, you can use as many mix-ins as you like.
+
+
+Do mix-ins follow different MRO rules than regular classes? Why or why not?
+
+    No, mix-ins do not follow different MRO rules than regular classes. They are just regular classes in Python's multiple inheritance system. The method resolution order (MRO) applies uniformly to all classes, including mix-ins, because mix-ins are simply used as a design pattern for interface inheritance and code reuse, not as a separate inheritance mechanism.

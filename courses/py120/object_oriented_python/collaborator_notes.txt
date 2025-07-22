@@ -1,0 +1,17 @@
+Could a collaborator object be shared between 
+two different objects? What kinds of problems 
+might this solve, and what kinds of problems 
+could it introduce?
+
+Yes, a collaborator object can be shared between 
+two different objects. This can solve problems like 
+reducing duplication and maintaining a single source
+ of truth for shared data or behavior. However, 
+ it could also introduce problems such as unintended 
+ side effects if one object modifies the collaborator
+in a way that affects the other object unexpectedly, 
+leading to tight coupling and harder-to-track bugs.
+
+
+Collaboration is a way of modeling relationships 
+between different objects.

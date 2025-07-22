@@ -1,0 +1,290 @@
+Specific Topics of Interest
+
+    OOP, Reading OO code
+        what is OOP and why is it important?
+            It allows us to structure our program as a collection of objects that enables us to encapsalate
+            data and behavior. it helps us build larger more complex programs
+            code is organized by objects and classes instead of functions,
+            manages complexity to allow us to deal with ripple effects
+            more reusability
+            can be better organized
+
+        what is a spike?
+            spike is temporary throwaway code used to play around with a problem domain
+            its the initial braindump of ideas to see what works best for program logic instead of implementation
+            Use spikes when approaching a new problem domain
+            when the right classes and methods are not immediately obvious
+            want to understand the problem better
+
+        When writing a program, what is a sign that youre missing a class?
+            the major sign is when you have repetitive nouns in method names
+            when you find yourself repeatedly referencing the same noun across multiple methodss
+            here is an example.
+            
+            ```python
+            human.make_move()
+            computer.make_move()
+
+            print(f'Human move was {format_move(human.move)}.')
+            print(f'Computer move was {format_move(computer.move)}.')
+
+            if compare_moves(human.move, computer.move) > 1:
+                print('Human won!')
+            elif compare_moves(human.move, computer.move) < 1:
+                print('Computer won!')
+            else:
+                print("It's a tie!")
+            ```
+
+            move appears in multiple places, this can suggest we need a move class
+
+
+        what are some rules / guidelines when writing programs in oop?
+            dont repeat the class name in method names
+                for example instead of it being player_info make it just info()
+            avoid long method invocation chains
+            look for repetitive nouns in method names
+            use inheritance for is-a relationships only
+            avoid multiple inheritance
+            avoid design patterns and premature optimization
+            use spikes
+
+    
+    Classes and objects
+        follow the definition - implementation - benefits model for answering questions
+        
+        what is encapsulation?
+            encacpsulation is grouping state and behaviors together in similar objects
+            and is used to hide implementation details and access control only exposing what is necessary
+
+            How does it work in python?
+                in python for access control we using name conventions and decorators for access control
+                by using underscores. Python does not truly fully support access control.
+            
+            Provide examples
+                we use things like self._name to indicate to people not to change. and __.name to indicate its private
+                and the name will be mangled if attempted to re-assigned.
+                a better way is to use properties with getters and setters
+
+        how do objects encapsulate state?
+            by bundling data (stored in instance variabls) and methods into a single entity
+            state is the data associated with an individual object instance
+
+        how can someone bypass encapsulation in python?
+            By calling the class directly if its a double underscore
+            <obj>._Dog__breek
+            otherwise with single underscores you can just overwrite without issue
+
+        What is Instantiation?
+            instantiation is the process of create a new object from a class
+            it calls the static method __new__ to allocate memory for the new object
+            it then calls the __init__ method to initialize the object with its initial state
+        
+        what does __init__ do?
+            the init method initializes the object and sets the initial state of the object.
+
+        what is a constructor in python (constructor method)?
+            the constructor in python refers to the class constructor function to create new instances of a class
+            when you call something like GoodDog() this is the constructor call, 
+            constructors themselves orchestrate the entire object creation process
+
+        describe and give an example of a instance variables
+            an instance variable is a variable that belongs to a specific instance of a class
+            We create instance variables by prepending the variable with "self"
+            Instance variables can be modified outside of a class
+            they persist as long as the object exists
+
+        what is an object?
+            Everything in python is an object, according to the documentation
+            an object is an instance crated from a class. (it contains both data(state) and methods (behaviors))
+        how do you initialize a new object?
+            by calling the constructor of a class
+            it calls the __new__ method
+        How do you create an instance of a class?
+            by calling the constructor of the class. for example GoodDog() will create a new instance of the
+            of a class as long as it has the __init__ in the class. It will be called automatically when you create 
+            a new object
+        what is an instance variable, how does it relate to an object?
+            an instance variable belongs to the object when it is created. Using the Self keyword
+        
+        What is an instance method?
+            instance methods are methods that are defined within a class
+            but perform operations on specific objects created from that class. They Cant be called on the class specifically
+            just defining a method without any keywords will create a instance method
+        
+        What is a class method?
+            A class method belongs to the class itself
+            you can declare it by using @classmethod and the parameter of cls
+            You can call class methods on the class itself for example GoodDog.what_am_i()
+            you can also call class methods from instance methods but not recommend
+        what is a class variable?
+            A class variable is variable that belongs to the class and not an instance.
+            You can declare it within the class body and not use the self keyword
+            it is shared with all instances of the class and stores information about the class itself
+
+        What is the scoping rules for instance variables?
+            scoping rules for instance variables are accessible anywhere in the instance of the object.
+            You can access them anywhere within the instance of the object created
+
+        What is the scoping rules for class variables?
+            They are scoped to the class itself. This means that they are shared by all instances of the class.
+            you can use it by calling the Class itself or using the cls argument in class methods.
+            you can also override class variables with inheritance and sub classes
+        what is the scoping rules for class methods?
+            class methods aare scoped at the class level, belong to the class itself.
+            they can access class level data but cant directly access instance specific data.
+            They can access other class methods, and other class variables.
+            When using cls the scope is within the calling class.
+
+            class Person:
+            name = 'Leslie'
+    
+                @classmethod
+                def get_name(cls):
+                    return [cls.name, Person.name]
+
+                class Teacher(Person):
+                    name = 'Ms Taylor'
+
+                print(Teacher.get_name())  # ['Ms Taylor', 'Leslie']
+
+        what is a static method?
+            a static method is a method that belongs to the class, but does not need access
+            to any class or instance attributes. They do not care about the state of the class and 
+            dont have any self or cls parameters.
+            defined with @staticmethod decorators
+            Can be called on an instance of an object or the class itself.
+            Used for utility functions or internal helper methods
+        
+        what is the scope of a static method?
+            A static method belongs to a class, but can be accessed
+            from an instance object or the class itself.
+            not recommended to access via instance objects as it can cause confusion.
+            static methos are inherited and can be called on parent or children.
+            can also be over-written
+
+        
+        When defining a class, we usually focus on state and behaviors. What is the difference between 
+        these two concepts? 
+            Objects do not share state between other objects, 
+            but do share behaviors
+
+        how do you see if an object has instance variables?
+            using vars() you can inspect an instance of an object and see all instance variables      
+
+        what is the difference between a single underscore for name conventions and double underscore
+            a single underscore tells a developer it is a private variable and should not be used
+            a double underscore all says that it is private, but if you try to modify it you will end up with
+            name mangling and create a new instance of the variable instead of changing the original value.
+
+        what is a collaborator and what is the purpose of using a collaborator
+            a collaborator is an object that is stored as state within another object
+            allows objects to work together without using inheritance
+            strings, lists, dictionaries are also collaborators as long as they are being used
+            to help the containing object perform its duties.
+
+            class Person:
+                def __init__(self, name):
+                    self.name = name
+
+            class Pet:
+                def jump(self):
+                    return 'How high?'
+
+            class Dog(Pet):
+                def speak(self):
+                    return 'bark!'
+
+                def fetch(self):
+                    return 'fetching!'
+
+            class Bulldog(Dog):
+                pass
+
+            # Creating collaborator relationships
+            bob = Person('Robert')
+            bud = Bulldog()
+            bob.pet = bud  # bud becomes a collaborator of bob
+
+            # Now bob can use its collaborator to perform actions
+            print(bob.pet.speak())  # bark!
+            print(bob.pet.fetch())  # fetching!
+
+
+
+        What is the difference between attribute and state?
+            state is the actual data within each instance that distringuishes each object from each other
+            Attributes are the properties that an object class can have, they are more about the structure
+            of the class, and not the data necessarily stored. Attributes are like the variables and methods
+            State are what those specific values are assigned to
+
+
+        explain the different attributes between static attributes, self, cls, and obj.__class__
+            
+        how do you set a getter?
+
+        how do you set a setter?
+
+        what does a setter return?
+
+        When using getters and setters when would you only use a getter? Why does this matter?
+
+        Why do we use getters and setters?
+
+        what do we use for access control in python? what are the differences between a double underscore and a single underscore
+
+    Polymorphism, inheritance, duck-typing, lookup paths
+        Explain how self and cls works when using inheritence
+        What happens when we use the super function? Provide an example
+
+        Mix-ins (interface inheritance)
+            what are the rules for a mix -in / best practices?
+            How can you recognize if it is a mix in?
+        
+        What is polymorphism? Explain two different ways to implement polymorphism
+        how does polymorphism work in python?
+        how would you explain is-a vs has-a?
+        what does scope do when we use inheritance
+
+        Explain MRO and what will be inherited first. Give examples
+        what does the is operator do?
+        what does the id function do?
+
+
+
+        Understanding self and cls with inheritance
+        The super() function
+
+        What is duck typing? how does it relate to polymorphism? what problem does it solve?
+
+         What is the difference between a superclass and a subclass? 
+         When is it good to use inheritance?
+            Give an example of how to use class inheritance. 
+            Give an example of using the super method, both with and without an argument. 
+            Give an example of overriding: when would you use it? In inheritance, 
+            when would it be good to override a method?
+
+        are class variables accessible to subclasses? Why or why not?
+        why should we avoid using class variables when dealing with inheritance?
+
+
+        
+    Magic methods and attributes: Give examples and be able to explain them all
+        Custom comparison methods: __eq__, __ne__, __lt__, etc.
+        Custom arithmetic methods: __add__, __sub__, __mul__, etc.
+        Custom formatting methods: __str__ and __repr__
+        Attributes: __class__ and __name__
+
+        "is-a" vs. "has-a"
+        The influence of inheritance on scope
+        Method Resolution Order (MRO)
+    The is operator and id() function
+
+    Exceptions:
+        What are exceptions?
+        Catching exceptions with try/except
+        Raising exceptions
+        The exception hierarchy (general; you don't need to memorize the hierarchy)
+        Custom exception classes
+    
+
