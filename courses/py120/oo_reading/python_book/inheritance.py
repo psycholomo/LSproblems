@@ -75,7 +75,6 @@ class Car(Vehicle):
         print('Taking the family for a drive')
 
 class Truck(Vehicle):
-
     def __init__(self, fuel_capacity, mpg):
         super().__init__(fuel_capacity, mpg)
 

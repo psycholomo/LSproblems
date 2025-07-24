@@ -1,0 +1,30 @@
+What does "internal use" mean in this context?
+ What purpose does a method designated for 
+ internal use serve?
+
+
+
+    "Internal use" means that an attribute or method is
+    intended to be used only within the class itself 
+    and not by code outside the class. It signals to 
+    other developers that this part of the code is
+    meant for the class's own internal workings 
+    and not part of the public interface.
+
+
+    A method designated for internal use serves to 
+    encapsulate functionality that supports the class's 
+    behavior but is not meant to be accessed or called 
+    directly from outside the class. This helps keep 
+    the external interface clean and prevents accidental 
+    misuse or changes to those internal details.
+
+
+
+Is there any way in Python to completely
+ prevent a programmer from changing an object's
+ internal state? If not, what's the point of using
+  a single underscore to indicate internal use?
+
+    There is no way to fully prevent a programmer
+    from changing an objects internal state
