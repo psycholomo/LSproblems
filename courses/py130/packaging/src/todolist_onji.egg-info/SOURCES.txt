@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/todolist_onji/__init__.py
+src/todolist_onji/todo.py
+src/todolist_onji/todolist.py
+src/todolist_onji.egg-info/PKG-INFO
+src/todolist_onji.egg-info/SOURCES.txt
+src/todolist_onji.egg-info/dependency_links.txt
+src/todolist_onji.egg-info/requires.txt
+src/todolist_onji.egg-info/top_level.txt
