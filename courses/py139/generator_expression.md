@@ -10,10 +10,16 @@
 **Answer:**
 ```python
 # Generator expression for reciprocals
-reciprocals = (1 / n for n in range(1, 11))
+#reciprocals = (1 / n for n in range(1, 11))
+
+def recip(max_range):
+
+    for num in (1, max_range):
+        yield 1 / n
+
 
 # Print each value using a for loop
-for value in reciprocals:
+for value in recip:
     print(value)
 ```
 
@@ -30,8 +36,6 @@ for value in reciprocals:
 0.1111111111111111
 0.1
 ```
-values = tuple(map(lambda n : n.capitlize(), numbers))
-print(list(values))
 
 ### 2. Basic: Use a generator expression to capitalize every string in a list of strings. Use a single `print` invocation to print all the capitalized strings as a tuple.
 
@@ -94,12 +98,6 @@ for value in reciprocals(7):
 ### 5. Basic: Create a generator function that generates the capitalized version of every string in a list of strings. Use a single print invocation to print all the capitalized strings as a tuple.
 strings = ['four', 'score', 'and', 'seven', 'years', 'ago']
 
-def capital(input):
-    
-    for i in range(0,len(input)):
-        yield input[i].capitalize()
-
-print(tuple(capital(strings)))
 
 
 **Answer:**
