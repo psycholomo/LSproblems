@@ -102,3 +102,34 @@
 // }
 
 // console.log(stringToSignedInteger("570"))
+
+// function integerToString(num) {
+//  let current = num
+//     let string = ""
+//  while (current > 0) {
+//     //console.log(current)
+//     let value = current % 10
+//     string = String(value) + string
+  
+//     current = Math.floor(current / 10)
+    
+//  }
+//  return string
+// }
+
+// //console.log(integerToString(4321));      // "4321"s
+
+// function signedIntegerToString(num) {
+//     if (num < 0) {
+//         num = Math.abs(num)
+//         return "-" + integerToString(num)
+//     }
+//     else if (num === 0) {
+//         return "0"
+//     }
+
+//     return "+" + integerToString(num)
+// }
+// console.log(signedIntegerToString(4321));      // "+4321"
+// console.log(signedIntegerToString(-123));      // "-123"
+// console.log(signedIntegerToString(0));         // "0"
