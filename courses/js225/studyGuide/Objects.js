@@ -136,3 +136,180 @@ factoryDog.constructor === Object is true as its just a plain object
 // baz.hasOwnProperty('a');  // false
 // baz.hasOwnProperty('b');  // false
 // baz.hasOwnProperty('c');  // true
+
+// function shallowCopy(object) {
+//     let copy = Object.create(Object.getPrototypeOf(object))
+
+//     Object.getOwnPropertyNames(object).forEach(prop => {
+//         copy[prop] = object[prop]
+//     })
+// }
+
+// Object.prototype.begetObject = function() {
+//     function F() {}
+//     F.prototype = this;
+//     return new F();
+// }
+
+// let foo = {
+//     a: 1,
+// }
+
+// let bar = foo.begetObject();
+// foo.isProtototypeOf(bar)
+// it uses a constroctur function to create a new object with this as its prototype. this is the same as using "Object.create"
+
+
+// function Person(name) {
+//   this.name = name;
+//   this.friends = [];
+// }
+
+// let alice = new Person("Alice");
+// let bob = new Person("Bob");
+
+// Person.prototype.friends.push("Charlie");
+
+// console.log(alice.friends); // ?
+// console.log(bob.friends);   // ?
+
+// let animal = {
+//   eats: true
+// };
+
+// let rabbit = Object.create(animal);
+
+// console.log(Object.getPrototypeOf(rabbit))
+// delete rabbit.eats;
+
+// console.log(rabbit.eats);
+
+
+
+
+//  function PetPrototype(animal, name) {
+//     this.animal = animal
+//     this.name = name
+
+//  }
+
+
+//   PetPrototype.prototype.sleep = function() {
+//     console.log("I am sleeping");
+//   }
+
+//   PetPrototype.prototype.wake = function() {
+//     console.log("I am awake");
+//   }
+
+//   let dog = new PetPrototype('dog', 'rover')
+
+
+
+// function Person(firstName, lastName, age, gender) {
+//     this.firstName = firstName
+
+
+// }
+
+function Doctor(firstName, lastName) {
+    Person.call(this, firstName, lastName)
+}
+
+
+Doctor.prototype = Object.create(Person.prototype)
+Doctor.prototype.constructor = Doctor
+
+
+Object.getOwnPropertyNames(obj)
+Object.getPrototypeOf(Doctor)
+Object.setPrototypeOf(value, foo)
+
+Object.assign when you want to use methods from multiple sources
+
+
+function User(first, last) {
+  if (!(this instanceof User)) {
+    return new User(first, last);
+  }
+  
+  this.name = first + ' ' + last;
+}
+
+
+
+**Question:** Explain the purpose of the constructor method within a JavaScript class. When is it automatically called?
+
+**Answer:**
+The `constructor` method is a special method used for initializing new instances of a class. Its purposes are:
+
+1. **Initialize instance properties** - Set up the initial state of the object
+2. **Accept parameters** - Receive arguments passed when creating a new instance
+3. **Set up initial configurations** - Perform any setup logic needed
+
+The constructor is **automatically called when a new instance is created** using the `new` keyword.
+
+constructor functions are functions invoked with new. it assigns properties and returns an object.
+
+when you create a new object it calls the constructor function. that contains a constructor and the methods are assigned to the function prototype prototype.
+
+functions have a prototype property
+All objects have an object property, object prototype for an object is an object that contains the methods for the methods an it inherits.
+
+function prototypes also have object prototypes. By default, the object prototype of a function prototype is the function prototype of the superclass.
+
+In JavaScript, every object has a hidden property called [[Prototype]] that points to its object prototype or null.
+
+
+function prototypes are used when creating new objects from the function or class; the function prototype gets assigned as the object prototype for the newly created object. 
+Object prototypes are used by objects to define where JavaScript should look for instance methods. Function.prototype
+
+
+
+let FooProto = Object.getPrototypeOf(Foo);
+console.log(FooProto === Function.prototype); // true
+
+
+
+var func1 = function(a, b) {
+  return a + b;
+}
+
+var func2 = func1.bind(undefined, 3);
+
+func2(1); // 4
+func2(2); // 5
+func2(3); // 6
+
+
+function partiallyApply(func, ...fixedArgs) {
+  return function (...remainingArgs) {
+    return func.apply(null, fixedArgs.concat(remainingArgs));
+  };
+}
+
+//explain the prototype channel
+
+// It creates a new object with the properties title, author, checkedout and genre. The internal prototype [[Prototype]] then points to
+// The FictionBook.prototype.
+// next the FictionBook was created with Object.create(Book.prototype) so it is an empty object with no properties. and its prototype
+// points to Book.prototype.
+// it then looks up the prototype chain for any methods that iw ould be used and handles property inherintance.
+
+//iiffe
+const NotificationSystem = (function (){
+ 
+ 
+return { notifications: [],
+ addDueNotification(bookTitle, patron) {
+ this.notifications.push({
+ messages: `${patron}, ${bookTitle} is due tomorrow}`,
+ type: "due",
+ read: false,
+ });
+},
+ getNotifications() {
+    return this.notifications 
+},
+}
+ }());
